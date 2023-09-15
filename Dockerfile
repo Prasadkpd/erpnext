@@ -22,9 +22,8 @@ RUN apt-get update && \
 RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
     sh get-docker.sh && \
     rm get-docker.sh
-    
-# Create a data container
-RUN docker create -v /home/frappe/frappe-bench/sites/site1.local/ -v /var/lib/mysql --name erpdata davidgu/erpnext
 
-# Run ERPNext
-# CMD ["docker", "run", "-d", "-p", "80:80", "--name", "erpnext", "--volumes-from", "erpdata", "davidgu/erpnext"]
+# Your Dockerfile continues here with additional instructions
+
+# Start Docker (for demonstration purposes only; not recommended in production)
+CMD ["dockerd"]
