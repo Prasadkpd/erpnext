@@ -1,5 +1,5 @@
-# Use an official Debian Stretch base image
-FROM debian:stretch
+# Use the official Ubuntu Minimal image as the base image
+FROM ubuntu-minimal:18.04
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
