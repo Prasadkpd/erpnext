@@ -1,5 +1,8 @@
-# Use an official Debian Wheezy base image
-FROM debian:wheezy
+# Use an official Debian Stretch base image
+FROM debian:stretch
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
