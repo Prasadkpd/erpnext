@@ -1,15 +1,17 @@
 # Use the official Ubuntu Minimal image as the base image
 FROM ubuntu:20.04
 
-RUN apt-get update
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required packages
-#RUN apt-get update
-RUN apt-get install -y \
-    redis-server \
-    nginx \
-    mariadb-client \
-    cron
+# Update package lists and install required packages without starting services
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        redis-server \
+        nginx \
+        mariadb-client \
+        cron && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create a data container
 # RUN docker create -v /home/frappe/frappe-bench/sites/site1.local/ -v /var/lib/mysql --name erpdata davidgu/erpnext
